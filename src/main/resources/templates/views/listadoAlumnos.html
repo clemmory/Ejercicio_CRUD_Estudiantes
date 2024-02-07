@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the alumnos Website!!</h1>
+    <h2>Listado de los alumnos matriculados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Genero</th>
+                <th>Fecha de Matricula</th>
+                <th>Total Asignaturas</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" alumno : ${alumnos}">
+                <td th:text="${alumno.nombre}"></td>
+                <td th:text="${alumno.apellidos}"></td>
+                <td th:text="${alumno.genero}"></td>
+                <td th:text="${alumno.fechaDeMatricula}"></td>
+                <td th:text="${alumno.totalAsignaturas}"></td>
+                <td th:text="${alumno.foto}"></td>
+                <td>
+                    <a th:href="@{/deleteAlumno/}+${alumno.id}">DELETE</a>
+                </td> 
+                <td>
+                    <a th:href="@{/actualizar/}+${alumno.id}">EDIT</a>
+                </td>              
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <tr>
+        <a th:href="@{/formularioAlta}">ADD AN ALUMNO</a>
+    </tr>  
+</body>
+</html>

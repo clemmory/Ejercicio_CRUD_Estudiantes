@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario Alta / Modificación Alumno</h1>
+    <fieldset style ="width: 40%;">
+        <form style="display: flex; flex-direction: column; justify-content: space-between;" 
+                th:object="${alumno}"
+                th:action="@{/saveAlumno}"
+                method="post">
+            <input type="hidden" th:field="*{id}">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" th:field="*{nombre}">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" th:field="*{apellidos}">
+            <fieldset>
+                <legend>Genero</legend>
+                <label for="hombre">Hombre</label>
+                <input type="radio" name="genero" id="hombre" value="HOMBRE" th:field="*{genero}">
+                <label for="mujer">Mujer</label>
+                <input type="radio" name="genero" id="mujer" value="MUJER" th:field="*{genero}">
+                <label for="otro">Otro</label>
+                <input type="radio" name="genero" id="otro" value="OTRO" th:field="*{genero}">
+            </fieldset>
+            <label for="fechaDeMatricula">Fecha de matricula:</label>
+            <input type="date" id="fechaDeMatricula" th:field="*{fechaDeMatricula}">
+            <label>Total Asignaturas</label>
+            <input type="text" id="totalAsignaturas" th:field="*{totalAsignaturas}">
+            <label for="foto">Foto</label>
+            <input type="text" id="foto" th:field="*{foto}">
+            <label for="curso">Curso</label>
+            <select id="curso" name="curso">
+                <option></option>
+                <option th:each=" curso: ${cursos}"
+                        th:value="${curso.id}"
+                        th:text="${curso.descripcion} + ' - ' + ${curso.horario}"
+                        th:selected="${alumno.id != 0 and alumno.curso.id == curso.id}"></option>
+                </option>
+            </select>
+            <label>Telefono(s)</label>
+            <input type="text" id="telefonos" name="phoneNumber" th:value="${telefonos}">
+            <label>Correo(s)</label>
+            <input type="text" id="correos" name="email" th:value="${correos}">
+            <input style="width:20%; margin-top: 10px;"type="submit" value="Save">
+        </form>
+    </fieldset> 
+</body>
+</html>
