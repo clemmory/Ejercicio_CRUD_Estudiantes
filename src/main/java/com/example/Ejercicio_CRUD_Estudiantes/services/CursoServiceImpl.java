@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.Ejercicio_CRUD_Estudiantes.dao.CursoDao;
+import com.example.Ejercicio_CRUD_Estudiantes.entities.Alumno;
 import com.example.Ejercicio_CRUD_Estudiantes.entities.Curso;
 
 import lombok.RequiredArgsConstructor;

@@ -3,6 +3,7 @@ package com.example.Ejercicio_CRUD_Estudiantes.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.Ejercicio_CRUD_Estudiantes.entities.Alumno;
 import com.example.Ejercicio_CRUD_Estudiantes.entities.Correo;
 import com.example.Ejercicio_CRUD_Estudiantes.entities.Curso;
+import com.example.Ejercicio_CRUD_Estudiantes.entities.Horario;
 import com.example.Ejercicio_CRUD_Estudiantes.entities.Telefono;
 import com.example.Ejercicio_CRUD_Estudiantes.services.AlumnoService;
 import com.example.Ejercicio_CRUD_Estudiantes.services.CursoService;
@@ -121,5 +123,23 @@ public class MainController {
         }
 
         return "views/formulario";
+    }
+
+    @GetMapping("/listadoHorario")
+    public String getAlumnosMañana(Model model){
+
+        List<Curso> cursos = cursoService.getCursos().stream()
+            .filter(c -> c.getHorario().equals(Horario.DIURNO))
+            .collect(Collectors.toList());
+
+        model.addAttribute("cursos", cursos);
+     
+        List<List<Alumno>> alumnos = cursoService.getCursos().stream()
+            .map(c -> c.getAlumnos())
+            .collect(Collectors.toList());
+
+        model.addAttribute("alumnos", alumnos);
+        
+        return "views/listMorning";
     }
 }
