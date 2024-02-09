@@ -67,7 +67,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.MUJER)
 			.fechaDeMatricula(LocalDate.of(2014, Month.APRIL,12))
 			.totalAsignaturas(3)
-			.foto("foto1")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(1))
 			.build();
 		
@@ -77,7 +77,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.HOMBRE)
 			.fechaDeMatricula(LocalDate.of(2021, Month.FEBRUARY,5))
 			.totalAsignaturas(2)
-			.foto("foto2")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(2))
 			.build();
 		
@@ -87,7 +87,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.MUJER)
 			.fechaDeMatricula(LocalDate.of(2010, Month.MARCH,15))
 			.totalAsignaturas(2)
-			.foto("foto3")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(2))
 			.build();
 
@@ -97,7 +97,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.HOMBRE)
 			.fechaDeMatricula(LocalDate.of(2022, Month.APRIL,21))
 			.totalAsignaturas(3)
-			.foto("foto4")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(1))
 			.build();
 		
@@ -107,7 +107,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.MUJER)
 			.fechaDeMatricula(LocalDate.of(2014, Month.SEPTEMBER,10))
 			.totalAsignaturas(3)
-			.foto("foto5")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(3))
 			.build();
 		
@@ -117,7 +117,7 @@ public class EjercicioCrudEstudiantesApplication implements CommandLineRunner{
 			.genero(Genero.MUJER)
 			.fechaDeMatricula(LocalDate.of(2017, Month.OCTOBER,9))
 			.totalAsignaturas(3)
-			.foto("foto6")
+			.foto("employee1.jpeg")
 			.curso(cursoService.getCurso(3))
 			.build();
 

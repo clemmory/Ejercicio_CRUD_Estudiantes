@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div th:each="entry : ${listAlumnosMorning}" >
+    <div th:each="entry : ${listAlumnos}" >
         <h1 th:text=" 'List of alumnos matriculados en Curso : '+ ${entry.key.descripcion}+' con Horario : ' + ${entry.key.horario}"></h1>
         <table>
             <thead>
@@ -20,19 +20,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="alumno : ${entry.value}" style="text-align:center;">
-                    <td style="border: 1px solid grey;" th:text="${alumno.nombre}"></td>
-                    <td style="border: 1px solid grey;"th:text="${alumno.apellidos}"></td>
-                    <td style="border: 1px solid grey;"th:text="${alumno.genero}"></td>
-                    <td style="border: 1px solid grey;" th:text="${alumno.fechaDeMatricula}"></td>
-                    <td style="border: 1px solid grey;"th:text="${alumno.totalAsignaturas}"></td>
+                <tr th:each="alumno : ${entry.value}" style="text-align: center;">
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.apellidos}"></td>
+                    <td th:text="${alumno.genero}"></td>
+                    <td th:text="${alumno.fechaDeMatricula}"></td>
+                    <td th:text="${alumno.totalAsignaturas}"></td>
                     <td style="border: 1px solid grey;">
                         <img th:src="@{/images/}+${alumno.foto}" 
                         alt="image del alumno: + ${alumno.nombre} +${alumno.apellidos}">
-                    </td>         
+                    </td>                    
                 </tr>
             </tbody>
         </table>
-    </div>
+</div>
+    
 </body>
 </html>

@@ -8,25 +8,28 @@
 <body>
     <h1>Welcome to the alumnos Website!!</h1>
     <h2>Listado de los alumnos matriculados</h2>
-    <table>
+    <table style="width:60%; ">
         <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Genero</th>
-                <th>Fecha de Matricula</th>
-                <th>Total Asignaturas</th>
-                <th>Foto</th>
+            <tr >
+                <th style="border: 1px solid grey;">Nombre</th>
+                <th style="border: 1px solid grey;">Apellidos</th>
+                <th style="border: 1px solid grey;">Genero</th>
+                <th style="border: 1px solid grey;">Fecha de Matricula</th>
+                <th style="border: 1px solid grey;">Total Asignaturas</th>
+                <th style="border: 1px solid grey;">Foto</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each=" alumno : ${alumnos}">
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellidos}"></td>
-                <td th:text="${alumno.genero}"></td>
-                <td th:text="${alumno.fechaDeMatricula}"></td>
-                <td th:text="${alumno.totalAsignaturas}"></td>
-                <td th:text="${alumno.foto}"></td>
+            <tr th:each=" alumno : ${alumnos}" style="text-align: center;">
+                <td th:text="${alumno.nombre}" style="border: 1px solid grey;"></td>
+                <td th:text="${alumno.apellidos}" style="border: 1px solid grey;"></td>
+                <td th:text="${alumno.genero}" style="border: 1px solid grey;"></td>
+                <td th:text="${alumno.fechaDeMatricula}" style="border: 1px solid grey;"></td>
+                <td th:text="${alumno.totalAsignaturas}"style="border: 1px solid grey;"></td>
+                <td style="border: 1px solid grey;">
+                    <img th:src="@{/images/}+${alumno.foto}" 
+                    alt="image del alumno: + ${alumno.nombre} +${alumno.apellidos}">
+                </td>
                 <td>
                     <a th:href="@{/deleteAlumno/}+${alumno.id}">DELETE</a>
                 </td> 
@@ -46,10 +49,7 @@
     </tr>
     <br>
     <tr>
-        <a>ALUMNOS CURSO 1</a>
-        <a>ALUMNOS CURSO 2</a>
-        <a>ALUMNOS CURSO 3</a>
-
+        <a th:href="@{/listCurso}">ALUMNOS ORGANIZADO EN CURSOS</a>
     </tr> 
 </body>
 </html>

@@ -11,7 +11,8 @@
         <form style="display: flex; flex-direction: column; justify-content: space-between;" 
                 th:object="${alumno}"
                 th:action="@{/saveAlumno}"
-                method="post">
+                method="post"
+                enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" th:field="*{nombre}">
@@ -31,7 +32,7 @@
             <label>Total Asignaturas</label>
             <input type="text" id="totalAsignaturas" th:field="*{totalAsignaturas}">
             <label for="foto">Foto</label>
-            <input type="text" id="foto" th:field="*{foto}">
+            <input type="file"name="file" th:value="${foto}">
             <label for="curso">Curso</label>
             <select id="curso" name="curso">
                 <option></option>
